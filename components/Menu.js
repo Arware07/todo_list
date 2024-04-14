@@ -1,21 +1,43 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const Menu = ({ navigation }) => {
+const Menu = () => {
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('Inicio')}>
-        <Text style={styles.menuItem}>Inicio</Text>
+      <Text style={styles.title}>Menú de la Aplicación</Text>
+      <TouchableOpacity
+        style={[
+          styles.option,
+          selectedOption === 'Opción 1' && styles.selectedOption,
+        ]}
+        onPress={() => handleOptionSelect('Opción 1')}>
+        <Text>Opción 1</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Lista de Tareas')}>
-        <Text style={styles.menuItem}>Acerca de</Text>
+      <TouchableOpacity
+        style={[
+          styles.option,
+          selectedOption === 'Opción 2' && styles.selectedOption,
+        ]}
+        onPress={() => handleOptionSelect('Opción 2')}>
+        <Text>Opción 2</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Pendientes')}>
-        <Text style={styles.menuItem}>Servicios</Text>
+      <TouchableOpacity
+        style={[
+          styles.option,
+          selectedOption === 'Opción 3' && styles.selectedOption,
+        ]}
+        onPress={() => handleOptionSelect('Opción 3')}>
+        <Text>Opción 3</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Terminadas')}>
-        <Text style={styles.menuItem}>Contacto</Text>
-      </TouchableOpacity>
+      <Text style={styles.selectedText}>
+        Opción seleccionada: {selectedOption}
+      </Text>
     </View>
   );
 };
@@ -23,14 +45,26 @@ const Menu = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#333',
-    paddingTop: 50,
-    paddingHorizontal: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  menuItem: {
-    color: '#fff',
-    fontSize: 18,
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
     marginBottom: 20,
+  },
+  option: {
+    padding: 10,
+    marginVertical: 5,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+  },
+  selectedOption: {
+    backgroundColor: '#e0e0e0',
+  },
+  selectedText: {
+    marginTop: 20,
   },
 });
 
