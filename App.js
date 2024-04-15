@@ -5,9 +5,7 @@ import Menu from './components/Menu';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hola Mundo!</Text>
-      <Text>App To-Do List</Text>
-      <StatusBar style="auto" />
+      <Menu/>
     </View>
   );
 }
