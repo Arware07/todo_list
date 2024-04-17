@@ -1,33 +1,41 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const Menu = () => {
   const [selectedOption, setSelectedOption] = useState('');
+  const navigation = useNavigation();
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
   };
+
+  const handleNavigateNewToDo = () => {
+    navigation.navigate('NewToDo')
+  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Menú de la Aplicación</Text>
       <TouchableOpacity
         style={[
-          styles.option,
-          selectedOption === 'Opción 1' && styles.selectedOption,
+          styles.option, styles.selectedOption,
         ]}
-        onPress={() => handleOptionSelect('Opción 1')}>
-        <Text>Opción 1</Text>
+        onPress={() => handleNavigateNewToDo()}>
+        <Text>Agregar nueva tarea</Text>
       </TouchableOpacity>
+
       <TouchableOpacity
         style={[
           styles.option,
           selectedOption === 'Opción 2' && styles.selectedOption,
         ]}
         onPress={() => handleOptionSelect('Opción 2')}>
-        <Text>Opción 2</Text>
+        <Text>Ver Tareas</Text>
       </TouchableOpacity>
-      <TouchableOpacity
+
+      {/* <TouchableOpacity
         style={[
           styles.option,
           selectedOption === 'Opción 3' && styles.selectedOption,
@@ -37,7 +45,7 @@ const Menu = () => {
       </TouchableOpacity>
       <Text style={styles.selectedText}>
         Opción seleccionada: {selectedOption}
-      </Text>
+      </Text> */}
     </View>
   );
 };
