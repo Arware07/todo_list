@@ -17,7 +17,7 @@ const Menu = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Menú de la Aplicación</Text>
+      <Text style={styles.title}>Bienvenidos a Nuestro To-Do List </Text>
       <TouchableOpacity
         style={[
           styles.option, styles.selectedOption,
@@ -57,19 +57,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 30,
   },
   option: {
     padding: 10,
     marginVertical: 5,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#86AAB3',
+    backgroundColor:'#AABAC4',
     borderRadius: 5,
   },
   selectedOption: {
-    backgroundColor: '#e0e0e0',
+    borderColor: '#86AAB3',
+    backgroundColor:'#AABAC4',
   },
   selectedText: {
     marginTop: 20,
