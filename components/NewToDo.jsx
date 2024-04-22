@@ -4,7 +4,7 @@ import { View, StyleSheet, Text } from "react-native";
 const NewToDo = () => {
   return (
     <View style={styles.container}>
-      <Text>Aqui estara a funcion para agregar nuvas tareas</Text>
+      <Text>Aqui se agregara una funcion para añadir nuevas tareas</Text>
     </View>
   );
 };
