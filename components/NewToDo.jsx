@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Button, TextInput, FlatList } from "react-native";
+import { View, StyleSheet, Text, Button, TextInput, FlatList} from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 const NewToDo = () => {
   const [newTodo, setNewTodo] = React.useState([]);
@@ -51,6 +52,28 @@ const NewToDo = () => {
     </View>
   );
 };
+
+const TaskList = ({ tasks, onRemoveTask }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Task List</Text>
+      <FlatList
+        style={styles.list}
+        data={tasks}
+        renderItem={({ item, index }) => (
+          <View style={styles.container}>
+            <Text style={styles.task}>{item}</Text>
+            <Text style={styles.removeButton} onPress={() => onRemoveTask(index)}>
+              Remove
+            </Text>
+          </View>
+        )}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </View>
+  );
+};
+
 
 const styles = StyleSheet.create({
   container: {

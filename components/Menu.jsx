@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-
 const Menu = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const navigation = useNavigation();
 
   const handleOptionSelect = (option) => {
-    setSelectedOption(option);
-  };
+    setSelectedOption('MyTasks');
+  }
 
-  const handleNavigateNewToDo = () => {
+  const handleNavigateNewToDo = (option) => {
     navigation.navigate('NewToDo')
   }
 
@@ -29,9 +28,9 @@ const Menu = () => {
       <TouchableOpacity
         style={[
           styles.option,
-          selectedOption === 'Opción 2' && styles.selectedOption,
+          selectedOption, styles.selectedOption,
         ]}
-        onPress={() => handleOptionSelect('Opción 2')}>
+        onPress={() => handleOptionSelect()}>
         <Text>Ver Tareas</Text>
       </TouchableOpacity>
 
